@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "./../assets/logo.png";
+import { LuUserRound } from "react-icons/lu";
 
 const Navbar = () => {
   const navbarLink = (
@@ -23,8 +24,8 @@ const Navbar = () => {
   return (
     <div className="bg-base-100 sticky top-0 z-50 shadow">
       <div className="max-width">
-        <div className="py-4 navbar px-0">
-          <div className="navbar-start">
+        <div className="py-4 navbar flex justify-between px-0">
+          <div className="flex items-center">
             <div className="dropdown">
               <div
                 tabIndex={0}
@@ -62,11 +63,13 @@ const Navbar = () => {
               Symbol Eye
             </Link>
           </div>
-          <div className="navbar-center hidden lg:flex">
+          <div className="hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{navbarLink}</ul>
           </div>
-          <div className="navbar-end">
-            <a className="btn">Button</a>
+          <div className="">
+            <div className="cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center border-base-300">
+              <LuUserRound className="text-xl"></LuUserRound>
+            </div>
           </div>
         </div>
       </div>
