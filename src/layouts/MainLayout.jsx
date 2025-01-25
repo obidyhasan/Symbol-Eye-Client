@@ -1,10 +1,15 @@
 import { Outlet } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const MainLayout = () => {
   return (
-    <div>
-      <h1>Main Layout</h1>
-      <Outlet></Outlet>
+    <div className="font-poppins">
+      <Navbar></Navbar>
+      <main className="min-h-screen">
+        <Outlet></Outlet>
+      </main>
+      <Footer></Footer>
     </div>
   );
 };
