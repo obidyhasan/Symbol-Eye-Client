@@ -15,6 +15,7 @@ const AuthProvider = ({ children }) => {
   const info = {
     user,
     loading,
+    setLoading,
     handelFirebaseLogin,
     handelFirebaseLogout,
   };

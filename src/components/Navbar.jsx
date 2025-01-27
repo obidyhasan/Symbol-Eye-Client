@@ -1,8 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "./../assets/logo.png";
 import { LuUserRound } from "react-icons/lu";
+import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {
+  const { user } = useAuth();
+
   const navbarLink = (
     <>
       <li>
@@ -68,7 +71,7 @@ const Navbar = () => {
           </div>
           <div className="">
             <Link
-              to={"/login"}
+              to={user?.email ? "/dashboard" : "/login"}
               className="cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center border-base-300"
             >
               <LuUserRound className="text-xl"></LuUserRound>

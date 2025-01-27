@@ -8,7 +8,7 @@ import { showErrorToast, showSuccessToast } from "../../../utility/toastify";
 const Login = () => {
   const [isHide, setIsHide] = useState(false);
   const [btnLoading, setBtnLoading] = useState(false);
-  const { handelFirebaseLogin } = useAuth();
+  const { handelFirebaseLogin, setLoading } = useAuth();
   const navigate = useNavigate();
 
   const {
@@ -21,11 +21,13 @@ const Login = () => {
     setBtnLoading(true);
     handelFirebaseLogin(data.email, data.password)
       .then(() => {
+        setLoading(false);
         showSuccessToast("Login Successfully");
         setBtnLoading(false);
         navigate("/", { replace: true });
       })
       .catch((error) => {
+        setLoading(false);
         console.log(error);
         setBtnLoading(false);
         showErrorToast("Something want wrong!");
