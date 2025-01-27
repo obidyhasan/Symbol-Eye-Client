@@ -67,9 +67,12 @@ const Navbar = () => {
             <ul className="menu menu-horizontal px-1">{navbarLink}</ul>
           </div>
           <div className="">
-            <div className="cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center border-base-300">
+            <Link
+              to={"/login"}
+              className="cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center border-base-300"
+            >
               <LuUserRound className="text-xl"></LuUserRound>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
