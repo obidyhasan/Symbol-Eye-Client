@@ -26,6 +26,56 @@ const Router = () => {
               <Dashboard></Dashboard>
             </AdminRoute>
           ),
+          children: [
+            {
+              path: "/dashboard/profile",
+              element: (
+                <AdminRoute>
+                  <h1>Profile</h1>
+                </AdminRoute>
+              ),
+            },
+            {
+              path: "/dashboard/categories",
+              element: (
+                <AdminRoute>
+                  <h1>Categories</h1>
+                </AdminRoute>
+              ),
+            },
+            {
+              path: "/dashboard/products",
+              element: (
+                <AdminRoute>
+                  <h1>Products</h1>
+                </AdminRoute>
+              ),
+            },
+            {
+              path: "/dashboard/services",
+              element: (
+                <AdminRoute>
+                  <h1>Services</h1>
+                </AdminRoute>
+              ),
+            },
+            {
+              path: "/dashboard/faq",
+              element: (
+                <AdminRoute>
+                  <h1>FAQ</h1>
+                </AdminRoute>
+              ),
+            },
+            {
+              path: "/dashboard/gallery",
+              element: (
+                <AdminRoute>
+                  <h1>Gallery</h1>
+                </AdminRoute>
+              ),
+            },
+          ],
         },
       ],
     },

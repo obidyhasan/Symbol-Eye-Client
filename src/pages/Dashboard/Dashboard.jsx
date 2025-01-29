@@ -9,19 +9,22 @@ const Dashboard = () => {
       <div className="border h-min border-gray-50 rounded-md">
         <ul className="menu w-full font-medium space-y-1">
           <li>
-            <NavLink>Dashboard</NavLink>
+            <NavLink to={"/dashboard/profile"}>Profile</NavLink>
           </li>
           <li>
-            <NavLink>Add Category</NavLink>
+            <NavLink to={"/dashboard/categories"}>Categories</NavLink>
           </li>
           <li>
-            <NavLink>Add Product</NavLink>
+            <NavLink to={"/dashboard/products"}>Products</NavLink>
           </li>
           <li>
-            <NavLink>Add Services</NavLink>
+            <NavLink to={"/dashboard/services"}>Services</NavLink>
           </li>
           <li>
-            <NavLink>Add FAQ</NavLink>
+            <NavLink to={"/dashboard/faq"}>FAQ</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/dashboard/gallery"}>Gallery</NavLink>
           </li>
           <li>
             <button
@@ -33,7 +36,7 @@ const Dashboard = () => {
           </li>
         </ul>
       </div>
-      <div className="md:col-span-2 lg:col-span-3 w-full min-h-screen rounded-lg bg-gray-50">
+      <div className="p-4 md:col-span-2 lg:col-span-3 w-full rounded-lg bg-gray-50">
         <Outlet></Outlet>
       </div>
     </div>
