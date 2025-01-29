@@ -1,10 +1,14 @@
-import bannerImg from "./../../../assets/banner-img.jpg";
-
 const HeroSection = () => {
   return (
     <div className="relative">
       <div>
-        <img src={bannerImg} className="w-full h-[500px] object-cover" alt="" />
+        <img
+          src={
+            "https://i.ibb.co.com/PZFmT28C/keagan-henman-x-PJYL0l5-Ii8sds-unspladfdsh.jpg"
+          }
+          className="w-full h-[500px] object-cover"
+          alt=""
+        />
       </div>
       <div className="w-full h-full bg-[#0000003d] absolute top-0 left-0">
         <div className="max-width h-full flex flex-col items-center justify-center text-white gap-3">
