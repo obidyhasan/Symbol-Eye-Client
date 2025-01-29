@@ -7,10 +7,12 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const axiosPublic = useAxiosPublic();
 
   const info = {
     user,
@@ -22,14 +24,33 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
+      if (currentUser) {
+        setUser(currentUser);
+        setLoading(false);
+        // Get token from api and store on local storage
+        const userInfo = { email: currentUser?.email };
+        axiosPublic
+          .post("/api/jwt", userInfo)
+          .then((result) => {
+            if (result?.data?.token) {
+              localStorage.setItem("access-token", result?.data?.token);
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } else {
+        setUser(null);
+        setLoading(false);
+        // Remove token if user is logged out
+        localStorage.removeItem("access-token");
+      }
     });
 
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [axiosPublic]);
 
   function handelFirebaseLogin(email, password) {
     setLoading(true);
