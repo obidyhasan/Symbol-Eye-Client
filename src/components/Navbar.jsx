@@ -71,7 +71,7 @@ const Navbar = () => {
           </div>
           <div className="">
             <Link
-              to={user?.email ? "/dashboard/profile" : "/login"}
+              to={user?.email ? "/dashboard" : "/login"}
               className="cursor-pointer border w-10 h-10 rounded-full flex items-center justify-center border-base-300"
             >
               <LuUserRound className="text-xl"></LuUserRound>

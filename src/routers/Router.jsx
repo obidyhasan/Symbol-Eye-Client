@@ -7,6 +7,7 @@ import AdminRoute from "./AdminRoute";
 import AdminCategories from "../pages/Dashboard/Admin/Categories/AdminCategories";
 import AdminGallery from "../pages/Dashboard/Admin/Gallery/AdminGallery";
 import AdminFAQ from "../pages/Dashboard/Admin/FAQ/AdminFAQ";
+import AdminServices from "../pages/Dashboard/Admin/Services/AdminServices";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -31,7 +32,7 @@ const Router = () => {
           ),
           children: [
             {
-              path: "/dashboard/profile",
+              path: "/dashboard",
               element: (
                 <AdminRoute>
                   <h1>Profile</h1>
@@ -58,7 +59,7 @@ const Router = () => {
               path: "/dashboard/services",
               element: (
                 <AdminRoute>
-                  <h1>Services</h1>
+                  <AdminServices></AdminServices>
                 </AdminRoute>
               ),
             },

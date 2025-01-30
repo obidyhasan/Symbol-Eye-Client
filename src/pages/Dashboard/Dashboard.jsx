@@ -9,7 +9,7 @@ const Dashboard = () => {
       <div className="border h-min border-gray-50 rounded-md">
         <ul className="menu w-full font-medium space-y-1">
           <li>
-            <NavLink to={"/dashboard/profile"}>Profile</NavLink>
+            <NavLink to={"/dashboard"}>Profile</NavLink>
           </li>
           <li>
             <NavLink to={"/dashboard/categories"}>Categories</NavLink>
