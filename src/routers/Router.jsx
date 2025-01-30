@@ -6,6 +6,7 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import AdminRoute from "./AdminRoute";
 import AdminCategories from "../pages/Dashboard/Admin/Categories/AdminCategories";
 import AdminGallery from "../pages/Dashboard/Admin/Gallery/AdminGallery";
+import AdminFAQ from "../pages/Dashboard/Admin/FAQ/AdminFAQ";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -65,7 +66,7 @@ const Router = () => {
               path: "/dashboard/faq",
               element: (
                 <AdminRoute>
-                  <h1>FAQ</h1>
+                  <AdminFAQ></AdminFAQ>
                 </AdminRoute>
               ),
             },
