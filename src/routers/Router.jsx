@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Auth/Login/Login";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import AdminRoute from "./AdminRoute";
+import AdminCategories from "../pages/Dashboard/Admin/Categories/AdminCategories";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -39,7 +40,7 @@ const Router = () => {
               path: "/dashboard/categories",
               element: (
                 <AdminRoute>
-                  <h1>Categories</h1>
+                  <AdminCategories></AdminCategories>
                 </AdminRoute>
               ),
             },
