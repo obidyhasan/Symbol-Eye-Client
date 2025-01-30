@@ -5,6 +5,7 @@ import Login from "../pages/Auth/Login/Login";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import AdminRoute from "./AdminRoute";
 import AdminCategories from "../pages/Dashboard/Admin/Categories/AdminCategories";
+import AdminGallery from "../pages/Dashboard/Admin/Gallery/AdminGallery";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -72,7 +73,7 @@ const Router = () => {
               path: "/dashboard/gallery",
               element: (
                 <AdminRoute>
-                  <h1>Gallery</h1>
+                  <AdminGallery></AdminGallery>
                 </AdminRoute>
               ),
             },

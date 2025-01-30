@@ -15,7 +15,12 @@ const AdminCategories = () => {
 
       <div className="my-5">
         <div className="text-center my-5">
-          <button className="btn">Add Category</button>
+          <button
+            onClick={() => addModalRef.current.showModal()}
+            className="btn"
+          >
+            Add Category
+          </button>
         </div>
         <div>
           <div className="overflow-x-auto">
@@ -34,12 +39,7 @@ const AdminCategories = () => {
                   <th>1</th>
                   <td className="font-medium">Cy Ganderton</td>
                   <td className="text-right">
-                    <button
-                      onClick={() => addModalRef.current.showModal()}
-                      className="btn"
-                    >
-                      Delete
-                    </button>
+                    <button className="btn">Delete</button>
                   </td>
                 </tr>
               </tbody>
@@ -50,7 +50,7 @@ const AdminCategories = () => {
 
       {/* Modal */}
       <dialog ref={addModalRef} className="modal">
-        <div className="modal-box">
+        <div className="modal-box max-w-sm">
           <form method="dialog">
             {/* if there is a button in form, it will close the modal */}
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
@@ -58,8 +58,18 @@ const AdminCategories = () => {
             </button>
           </form>
           <div>
-            <h3 className="font-bold text-lg">Hello!</h3>
-            <p className="py-4">Press ESC key or click outside to close</p>
+            <h3 className="font-bold text-lg text-center">Add Category</h3>
+            <form>
+              <input
+                type="text"
+                placeholder="enter category"
+                className="input w-full my-5"
+                required
+              />
+              <div className="text-center">
+                <button className="btn">Add Category</button>
+              </div>
+            </form>
           </div>
         </div>
         <form method="dialog" className="modal-backdrop">
