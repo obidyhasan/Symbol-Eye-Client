@@ -1,8 +1,53 @@
 import { useRef } from "react";
 import Titles from "../../../../components/Titles";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { showErrorToast, showSuccessToast } from "../../../../utility/toastify";
+import useCategory from "../../../../hooks/useCategory";
+import { showConfirmAlert } from "../../../../utility/sweetAlert";
 
 const AdminCategories = () => {
   const addModalRef = useRef();
+  const axiosSecure = useAxiosSecure();
+  const { categories, isPending, refetch } = useCategory();
+
+  function handelOnSubmit(e) {
+    e.preventDefault();
+    const category = e.target.category.value;
+
+    axiosSecure
+      .post("/api/category", { category })
+      .then((res) => {
+        if (res.data.insertedId) {
+          showSuccessToast("Category Added Successfully");
+          addModalRef.current.close();
+          refetch();
+          e.target.reset();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        showErrorToast("Somethings went wrong!");
+      });
+  }
+
+  function handelCategoryDelete(id) {
+    showConfirmAlert().then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure
+          .delete(`/api/category/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount) {
+              showSuccessToast("Category Deleted Successfully");
+              refetch();
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            showErrorToast(error.message);
+          });
+      }
+    });
+  }
 
   return (
     <div>
@@ -23,28 +68,50 @@ const AdminCategories = () => {
           </button>
         </div>
         <div>
-          <div className="overflow-x-auto">
-            <table className="table">
-              {/* head */}
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Category</th>
-                  <th className="text-right">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* row 1 */}
-                <tr>
-                  <th>1</th>
-                  <td className="font-medium">Cy Ganderton</td>
-                  <td className="text-right">
-                    <button className="btn">Delete</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          {isPending ? (
+            <div className="py-10 flex items-center justify-center">
+              <span className="loading loading-spinner loading-xl"></span>
+            </div>
+          ) : (
+            <div>
+              {categories.length ? (
+                <div className="overflow-x-auto">
+                  <table className="table">
+                    {/* head */}
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Category</th>
+                        <th className="text-right">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {categories.map((category, idx) => (
+                        <tr key={category?._id}>
+                          <th>{idx + 1}</th>
+                          <td className="font-medium">{category?.category}</td>
+                          <td className="text-right">
+                            <button
+                              onClick={() => handelCategoryDelete(category._id)}
+                              className="btn"
+                            >
+                              Delete
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <div className="py-10 text-center">
+                  <p className="border p-3 rounded border-base-300">
+                    Categories empty
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
 
@@ -59,9 +126,10 @@ const AdminCategories = () => {
           </form>
           <div>
             <h3 className="font-bold text-lg text-center">Add Category</h3>
-            <form>
+            <form onSubmit={handelOnSubmit}>
               <input
                 type="text"
+                name="category"
                 placeholder="enter category"
                 className="input w-full my-5"
                 required
