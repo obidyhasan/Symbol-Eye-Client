@@ -9,7 +9,6 @@ const AdminServices = () => {
   const serviceModalRef = useRef();
   const axiosSecure = useAxiosSecure();
   const { services, isPending, refetch } = useService();
-  console.log(services);
 
   function handelOnSubmit(e) {
     e.preventDefault();
@@ -23,6 +22,7 @@ const AdminServices = () => {
           showSuccessToast("Service Added Successfully");
           refetch();
           serviceModalRef.current.close();
+          e.target.reset();
         }
       })
       .catch((error) => {
