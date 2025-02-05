@@ -3,7 +3,7 @@ import ServiceCard from "../../../components/ServiceCard";
 
 const ServicesSection = () => {
   return (
-    <div className="max-width p-10">
+    <div className="max-width pt-10 pb-16">
       <Headline
         headline={"Our Services, Your Style"}
         subHeadline={
