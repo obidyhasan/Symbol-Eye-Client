@@ -60,9 +60,9 @@ const Navbar = () => {
             <Link className="text-xl font-bold flex items-center gap-1">
               <img
                 src={logo}
-                className="w-10 h-10 hidden lg:block object-contain"
+                className="grayscale w-10 h-10 hidden lg:block object-contain"
                 alt="logo"
-              />{" "}
+              />
               Symbol Eye
             </Link>
           </div>
