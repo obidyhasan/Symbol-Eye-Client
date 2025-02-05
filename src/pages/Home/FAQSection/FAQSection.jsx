@@ -1,6 +1,10 @@
+import FAQCard from "../../../components/FAQCard";
 import Headline from "../../../components/Headline";
+import useFAQ from "../../../hooks/useFAQ";
 
 const FAQSection = () => {
+  const { faqs, isPending } = useFAQ();
+
   return (
     <div className="max-width pb-16 pt-10">
       <Headline
@@ -9,36 +13,29 @@ const FAQSection = () => {
           "Browse our FAQs for quick solutions to common queries about shopping, shipping, and returns."
         }
       ></Headline>
+
       <div className="mt-10">
-        <div className="space-y-4">
-          <div className="collapse collapse-arrow bg-base-200 rounded">
-            <input type="radio" name="my-accordion-2" defaultChecked />
-            <div className="collapse-title text-lg font-medium">
-              Click to open this one and close others
-            </div>
-            <div className="collapse-content">
-              <p className="text-sm">hello</p>
-            </div>
+        {isPending ? (
+          <div className="flex items-center justify-center py-10">
+            <span className="loading loading-spinner loading-lg"></span>
           </div>
-          <div className="collapse collapse-arrow bg-base-200 rounded">
-            <input type="radio" name="my-accordion-2" />
-            <div className="collapse-title text-lg font-medium">
-              Click to open this one and close others
-            </div>
-            <div className="collapse-content">
-              <p className="text-sm">hello</p>
-            </div>
+        ) : (
+          <div>
+            {faqs.length ? (
+              <div className="space-y-4">
+                {faqs.map((faq, idx) => (
+                  <FAQCard key={faq?._id} idx={idx} faq={faq}></FAQCard>
+                ))}
+              </div>
+            ) : (
+              <div>
+                <p className="p-5 rounded text-center font-medium border border-base-200">
+                  FAQ Not Found
+                </p>
+              </div>
+            )}
           </div>
-          <div className="collapse collapse-arrow bg-base-200 rounded">
-            <input type="radio" name="my-accordion-2" />
-            <div className="collapse-title text-lg font-medium">
-              Click to open this one and close others
-            </div>
-            <div className="collapse-content">
-              <p className="text-sm">hello</p>
-            </div>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
