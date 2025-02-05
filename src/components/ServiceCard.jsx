@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const ServiceCard = ({ service }) => {
   return (
-    <div className="border border-base-200 p-4 rounded flex flex-col gap-3">
+    <div className="transform duration-300 hover:border-base-300 cursor-pointer border border-base-200 p-4 rounded flex flex-col gap-3">
       <h1 className="font-semibold">{service?.title}</h1>
       <p className="text-sm text-justify">{service?.description}</p>
     </div>

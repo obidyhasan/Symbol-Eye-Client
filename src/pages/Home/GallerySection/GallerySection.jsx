@@ -23,7 +23,10 @@ const GallerySection = () => {
             {gallery.length ? (
               <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {gallery.map((img) => (
-                  <div key={img?._id}>
+                  <div
+                    className="transform duration-300 hover:-translate-y-1.5"
+                    key={img?._id}
+                  >
                     <img
                       src={img?.image}
                       className="w-full h-[300px] bg-base-300"

@@ -1,6 +1,7 @@
 import { MdCall, MdOutlineMail } from "react-icons/md";
 import logo from "./../assets/fabIcon_2.svg";
 import { GrLocation } from "react-icons/gr";
+import { Link } from "react-scroll";
 
 const Footer = () => {
   return (
@@ -17,10 +18,46 @@ const Footer = () => {
         <div>
           <h2 className="font-semibold text-xl">Useful Links</h2>
           <div className="mt-5 flex gap-3 flex-col">
-            <p>Services</p>
-            <p>Category</p>
-            <p>Gallery</p>
-            <p>Faq</p>
+            <Link
+              to={"service"}
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              className={`cursor-pointer transform duration-300 hover:translate-x-1.5`}
+            >
+              Service
+            </Link>
+            <Link
+              to={"category"}
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              className={`cursor-pointer transform duration-300 hover:translate-x-1.5`}
+            >
+              Category
+            </Link>
+            <Link
+              to={"gallery"}
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              className={`cursor-pointer transform duration-300 hover:translate-x-1.5`}
+            >
+              Gallery
+            </Link>
+            <Link
+              to={"faq"}
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              className={`cursor-pointer transform duration-300 hover:translate-x-1.5`}
+            >
+              Faq
+            </Link>
           </div>
         </div>
         <div>

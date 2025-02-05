@@ -16,7 +16,7 @@ const Navbar = () => {
           to={"home"}
           spy={true}
           smooth={true}
-          offset={-80}
+          offset={-82}
           duration={500}
           activeClass={active}
           className={`cursor-pointer`}
@@ -43,7 +43,7 @@ const Navbar = () => {
           to={"category"}
           spy={true}
           smooth={true}
-          offset={-50}
+          offset={-60}
           duration={500}
           activeClass={active}
           className={`cursor-pointer`}
@@ -56,7 +56,7 @@ const Navbar = () => {
           to={"gallery"}
           spy={true}
           smooth={true}
-          offset={-50}
+          offset={-60}
           duration={500}
           activeClass={active}
           className={`cursor-pointer`}
@@ -69,7 +69,7 @@ const Navbar = () => {
           to={"faq"}
           spy={true}
           smooth={true}
-          offset={-50}
+          offset={-60}
           duration={500}
           activeClass={active}
           className={`cursor-pointer`}

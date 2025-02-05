@@ -1,0 +1,48 @@
+/* Tab Style */
+/* Style the Tab List */
+.react-tabs__tab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+/* Style each Tab */
+.react-tabs__tab {
+  list-style: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 180px;
+  border: 1px solid #f2f2f2;
+  transition: background-color 0.3s ease;
+}
+
+/* Active Tab */
+.react-tabs__tab--selected {
+  border-radius: 180px;
+  background-color: #000000;
+  color: white;
+}
+.react-tabs__tab--selected:hover {
+  border-radius: 180px;
+  background-color: #000000;
+  color: black;
+}
+
+.react-tabs__tab-list {
+  border-bottom: none; /* Removes the bottom line */
+}
+
+/* Hover Effect */
+.react-tabs__tab:hover {
+  background-color: #f1f1f1;
+}
+
+/* Tab Panel */
+.react-tabs__tab-panel {
+  padding: 0;
+  margin-top: 40px;
+}

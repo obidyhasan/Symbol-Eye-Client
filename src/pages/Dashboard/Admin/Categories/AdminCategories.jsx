@@ -54,7 +54,7 @@ const AdminCategories = () => {
       <Titles
         title={"Manage Categories"}
         description={
-          "Add, edit, and remove categories to keep your store organized and up to date."
+          "Add, Delete, and remove categories to keep your store organized and up to date."
         }
       ></Titles>
 

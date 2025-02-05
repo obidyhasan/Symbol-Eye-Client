@@ -9,6 +9,7 @@ import AdminGallery from "../pages/Dashboard/Admin/Gallery/AdminGallery";
 import AdminFAQ from "../pages/Dashboard/Admin/FAQ/AdminFAQ";
 import AdminServices from "../pages/Dashboard/Admin/Services/AdminServices";
 import AdminProfile from "../pages/Dashboard/Admin/Profile/AdminProfile";
+import AdminProducts from "../pages/Dashboard/Admin/Products/AdminProducts";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -52,7 +53,7 @@ const Router = () => {
               path: "/dashboard/products",
               element: (
                 <AdminRoute>
-                  <h1>Products</h1>
+                  <AdminProducts></AdminProducts>
                 </AdminRoute>
               ),
             },
