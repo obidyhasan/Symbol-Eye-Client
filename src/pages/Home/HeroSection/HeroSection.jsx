@@ -1,6 +1,8 @@
+import { FaFacebookF } from "react-icons/fa";
+
 const HeroSection = () => {
   return (
-    <div className="relative">
+    <div id="home" className="relative">
       <div>
         <img
           src={
@@ -20,7 +22,12 @@ const HeroSection = () => {
             confidence and celebrate individuality. Shop the latest trends
             today!
           </p>
-          <button className="btn btn-outline mt-2">Explore Collections</button>
+          <div className="flex gap-3 mt-2">
+            <button className="btn btn-outline ">Explore Collections</button>
+            <div className="btn btn-outline">
+              <FaFacebookF className="text-lg" />
+            </div>
+          </div>
         </div>
       </div>
     </div>

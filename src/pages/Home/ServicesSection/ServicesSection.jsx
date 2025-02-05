@@ -4,10 +4,9 @@ import useService from "../../../hooks/useService";
 
 const ServicesSection = () => {
   const { services, isPending } = useService();
-  console.log(services);
 
   return (
-    <div className="max-width pt-10 pb-16">
+    <div id="service" className="max-width pt-10 pb-16">
       <Headline
         headline={"Our Services, Your Style"}
         subHeadline={

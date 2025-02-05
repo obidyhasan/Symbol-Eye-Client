@@ -5,7 +5,7 @@ const GallerySection = () => {
   const { gallery, isPending } = useGallery();
 
   return (
-    <div className="max-width pb-10 pt-10">
+    <div id="gallery" className="max-width pb-10 pt-10">
       <Headline
         headline={"Our Fashion in Focus"}
         subHeadline={

@@ -3,7 +3,7 @@ import ProductCard from "../../../components/ProductCard";
 
 const CategoriesSection = () => {
   return (
-    <div className="max-width pb-10 pt-16">
+    <div id="category" className="max-width pb-10 pt-16">
       <Headline
         headline={"Shop by Category"}
         subHeadline={

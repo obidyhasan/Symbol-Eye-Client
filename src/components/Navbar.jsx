@@ -1,28 +1,81 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "./../assets/logo.png";
 import { LuUserRound } from "react-icons/lu";
 import useAuth from "../hooks/useAuth";
+import { Link as LinkScroll } from "react-scroll";
 
 const Navbar = () => {
   const { user } = useAuth();
 
+  const active = "text-green01 font-semibold";
+
   const navbarLink = (
     <>
       <li>
-        <NavLink>Home</NavLink>
+        <LinkScroll
+          to={"home"}
+          spy={true}
+          smooth={true}
+          offset={-80}
+          duration={500}
+          activeClass={active}
+          className={`cursor-pointer`}
+        >
+          Home
+        </LinkScroll>
       </li>
 
       <li>
-        <NavLink>Services</NavLink>
+        <LinkScroll
+          to={"service"}
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          activeClass={active}
+          className={`cursor-pointer`}
+        >
+          Service
+        </LinkScroll>
       </li>
       <li>
-        <NavLink>Category</NavLink>
+        <LinkScroll
+          to={"category"}
+          spy={true}
+          smooth={true}
+          offset={-50}
+          duration={500}
+          activeClass={active}
+          className={`cursor-pointer`}
+        >
+          Category
+        </LinkScroll>
       </li>
       <li>
-        <NavLink>Gallery</NavLink>
+        <LinkScroll
+          to={"gallery"}
+          spy={true}
+          smooth={true}
+          offset={-50}
+          duration={500}
+          activeClass={active}
+          className={`cursor-pointer`}
+        >
+          Gallery
+        </LinkScroll>
       </li>
       <li>
-        <NavLink>Faq</NavLink>
+        <LinkScroll
+          to={"faq"}
+          spy={true}
+          smooth={true}
+          offset={-50}
+          duration={500}
+          activeClass={active}
+          className={`cursor-pointer`}
+        >
+          Faq
+        </LinkScroll>
       </li>
     </>
   );

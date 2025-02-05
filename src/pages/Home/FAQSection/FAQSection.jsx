@@ -6,7 +6,7 @@ const FAQSection = () => {
   const { faqs, isPending } = useFAQ();
 
   return (
-    <div className="max-width pb-16 pt-10">
+    <div id="faq" className="max-width pb-16 pt-10">
       <Headline
         headline={"Have Questions? We Have Answers!"}
         subHeadline={
