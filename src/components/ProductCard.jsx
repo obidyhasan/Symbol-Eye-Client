@@ -1,6 +1,31 @@
 import PropTypes from "prop-types";
+import { showConfirmAlert } from "../utility/sweetAlert";
+import useAxiosSecure from "../hooks/useAxiosSecure";
+import { showErrorToast, showSuccessToast } from "../utility/toastify";
+import useProduct from "../hooks/useProduct";
 
 const ProductCard = ({ product, isAdmin }) => {
+  const axiosSecure = useAxiosSecure();
+  const { refetch } = useProduct();
+
+  function handelProductDelete(id) {
+    showConfirmAlert()
+      .then((res) => {
+        if (res.isConfirmed) {
+          axiosSecure.delete(`/api/products/${id}`).then((res) => {
+            if (res.data.deletedCount) {
+              showSuccessToast("Image Deleted Successfully");
+              refetch();
+            }
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        showErrorToast(error.message);
+      });
+  }
+
   return (
     <div className="bg-white flex flex-col gap-3 border border-base-200 p-4 rounded">
       <div className="flex-auto">
@@ -24,7 +49,12 @@ const ProductCard = ({ product, isAdmin }) => {
       {isAdmin && (
         <div className="flex gap-3 w-full">
           <button className="btn flex-auto">Update</button>
-          <button className="btn btn-error flex-auto">Delete</button>
+          <button
+            onClick={() => handelProductDelete(product?._id)}
+            className="btn btn-error flex-auto"
+          >
+            Delete
+          </button>
         </div>
       )}
     </div>
