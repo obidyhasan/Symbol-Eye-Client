@@ -92,7 +92,7 @@ const ProductCard = ({ product, isAdmin }) => {
   }
 
   return (
-    <div>
+    <>
       <div
         onClick={() => !isAdmin && detailsModalRef.current.show()}
         className={
@@ -101,8 +101,8 @@ const ProductCard = ({ product, isAdmin }) => {
             : "cursor-pointer transform duration-300 hover:-translate-y-2"
         }
       >
-        <div className="bg-white flex flex-col gap-3 border border-base-200 p-4 rounded">
-          <div className="flex-auto">
+        <div className="w-full h-full bg-white flex flex-col justify-between gap-3 border border-base-200 p-4 rounded">
+          <div>
             <img
               src={product?.image}
               className="w-full h-[220px] object-cover rounded"
@@ -118,26 +118,28 @@ const ProductCard = ({ product, isAdmin }) => {
             </div>
           </div>
 
-          {isAdmin ? (
-            <div className="flex gap-3 w-full">
-              <button
-                onClick={() => updateModalRef.current.show()}
-                className="btn flex-auto"
-              >
-                Update
-              </button>
-              <button
-                onClick={() => handelProductDelete(product?._id)}
-                className="btn btn-error flex-auto"
-              >
-                Delete
-              </button>
-            </div>
-          ) : (
-            <div>
-              <button className="btn w-full">View Details</button>
-            </div>
-          )}
+          <div>
+            {isAdmin ? (
+              <div className="flex gap-3 w-full">
+                <button
+                  onClick={() => updateModalRef.current.show()}
+                  className="btn flex-auto"
+                >
+                  Update
+                </button>
+                <button
+                  onClick={() => handelProductDelete(product?._id)}
+                  className="btn btn-error flex-auto"
+                >
+                  Delete
+                </button>
+              </div>
+            ) : (
+              <div>
+                <button className="btn w-full">View Details</button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
       {/* update Modal */}
@@ -274,7 +276,7 @@ const ProductCard = ({ product, isAdmin }) => {
               <div className="flex-auto">
                 <img
                   src={product?.image}
-                  className="w-full h-[280px] object-cover rounded"
+                  className="w-full  object-contain rounded"
                   alt=""
                 />
                 <div className="flex flex-col gap-2 mt-3">
@@ -295,7 +297,7 @@ const ProductCard = ({ product, isAdmin }) => {
           <button>close</button>
         </form>
       </dialog>
-    </div>
+    </>
   );
 };
 

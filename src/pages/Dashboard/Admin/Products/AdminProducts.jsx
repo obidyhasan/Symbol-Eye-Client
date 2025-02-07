@@ -10,6 +10,7 @@ import ProductCard from "../../../../components/ProductCard";
 
 const AdminProducts = () => {
   const addModalRef = useRef();
+  const inputForm = useRef();
   const [btnLoading, setBtnLoading] = useState(false);
   const { register, handleSubmit } = useForm();
   const { categories } = useCategory();
@@ -42,6 +43,7 @@ const AdminProducts = () => {
                 addModalRef.current.close();
                 setBtnLoading(false);
                 refetch();
+                inputForm.current.reset();
               }
             })
             .catch((error) => {
@@ -107,7 +109,7 @@ const AdminProducts = () => {
           </form>
           <div>
             <h3 className="font-bold text-lg text-center">Add Product</h3>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form ref={inputForm} onSubmit={handleSubmit(onSubmit)}>
               <fieldset className="fieldset">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="w-full">
@@ -147,9 +149,11 @@ const AdminProducts = () => {
                       Product Category
                     </label>
                     <select
+                      defaultValue={"Select Category"}
                       {...register("category")}
                       className="select select-bordered w-full max-w-xs"
                     >
+                      <option disabled>Select Category</option>
                       {categories.map((category) => (
                         <option key={category?._id}>
                           {category?.category}
