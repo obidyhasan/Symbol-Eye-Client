@@ -4,6 +4,7 @@ import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import useAuth from "../../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { showErrorToast, showSuccessToast } from "../../../utility/toastify";
+import logo from "./../../../assets/logo.png";
 
 const Login = () => {
   const [isHide, setIsHide] = useState(false);
@@ -36,12 +37,15 @@ const Login = () => {
 
   return (
     <div className="w-full max-width flex items-center justify-center">
-      <div className="card w-full max-w-sm my-20">
+      <div className="card w-full max-w-md my-20">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="card-body flex flex-col gap-4"
         >
-          <label className="font-bold text-2xl text-center">Login</label>
+          <div className="flex justify-center">
+            <img src={logo} className="w-7" alt="" />
+          </div>
+          <label className="font-bold text-3xl text-center">Login</label>
           <hr className="border-base-300 my-2" />
           <div className="form-control">
             <label className="label">
@@ -51,7 +55,7 @@ const Login = () => {
               {...register("email")}
               type="email"
               placeholder="email"
-              className="input input-bordered"
+              className="input input-bordered w-full"
               required
             />
           </div>
@@ -60,12 +64,12 @@ const Login = () => {
               <span className="label-text mb-2">Password</span>
             </label>
 
-            <label className="input input-bordered flex items-center gap-2">
+            <label className="input input-bordered flex items-center gap-2 w-full">
               <input
                 {...register("password", { minLength: 6 })}
                 type={isHide ? "text" : "password"}
                 placeholder="password"
-                className=""
+                className="w-full"
                 required
               />
               <span
@@ -88,7 +92,7 @@ const Login = () => {
                 Login
               </button>
             ) : (
-              <button className="btn w-full btn-primary">Login</button>
+              <button className="btn w-full btn-neutral">Login</button>
             )}
           </div>
         </form>

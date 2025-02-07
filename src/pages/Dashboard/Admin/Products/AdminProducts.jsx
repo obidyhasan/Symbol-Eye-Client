@@ -71,7 +71,7 @@ const AdminProducts = () => {
         <div className="text-center my-5">
           <button
             onClick={() => addModalRef.current.showModal()}
-            className="btn"
+            className="btn btn-neutral"
           >
             Add Product
           </button>

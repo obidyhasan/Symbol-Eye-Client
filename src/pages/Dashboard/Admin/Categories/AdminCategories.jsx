@@ -62,7 +62,7 @@ const AdminCategories = () => {
         <div className="text-center my-5">
           <button
             onClick={() => addModalRef.current.showModal()}
-            className="btn"
+            className="btn btn-neutral"
           >
             Add Category
           </button>

@@ -62,9 +62,9 @@ const AdminServices = () => {
         <div className="text-center my-5">
           <button
             onClick={() => serviceModalRef.current.showModal()}
-            className="btn"
+            className="btn btn-neutral"
           >
-            Add Services
+            Add Service
           </button>
         </div>
       </div>

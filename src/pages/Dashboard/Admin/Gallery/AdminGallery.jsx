@@ -69,7 +69,7 @@ const AdminGallery = () => {
         <div className="text-center my-5">
           <button
             onClick={() => galleryModalRef.current.showModal()}
-            className="btn"
+            className="btn btn-neutral"
           >
             Add Image
           </button>

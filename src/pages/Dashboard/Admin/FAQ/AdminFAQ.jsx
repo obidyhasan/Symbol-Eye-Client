@@ -62,7 +62,7 @@ const AdminFAQ = () => {
         <div className="text-center my-5">
           <button
             onClick={() => faqModalRef.current.showModal()}
-            className="btn"
+            className="btn btn-neutral"
           >
             Add FAQ
           </button>
