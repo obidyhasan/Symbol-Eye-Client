@@ -12,6 +12,7 @@ const ProductCard = ({ product, isAdmin }) => {
   const axiosSecure = useAxiosSecure();
   const { refetch } = useProduct();
   const updateModalRef = useRef();
+  const detailsModalRef = useRef();
   const { categories } = useCategory();
   const axiosPublic = useAxiosPublic();
   const API_KEY = import.meta.env.VITE_IMGBB_API_KEY;
@@ -62,6 +63,7 @@ const ProductCard = ({ product, isAdmin }) => {
           setBtnLoading(false);
           showSuccessToast("Product update successfully");
           refetch();
+          updateModalRef.current.close();
         }
       })
       .catch((error) => {
@@ -91,7 +93,14 @@ const ProductCard = ({ product, isAdmin }) => {
 
   return (
     <div>
-      <>
+      <div
+        onClick={() => !isAdmin && detailsModalRef.current.show()}
+        className={
+          isAdmin
+            ? ""
+            : "cursor-pointer transform duration-300 hover:-translate-y-2"
+        }
+      >
         <div className="bg-white flex flex-col gap-3 border border-base-200 p-4 rounded">
           <div className="flex-auto">
             <img
@@ -104,14 +113,12 @@ const ProductCard = ({ product, isAdmin }) => {
                 {product?.category}
               </div>
               <h2 className="font-semibold text-lg">{product?.name}</h2>
-              <p className="font-medium text-orange-400 line-clamp-2">
-                ৳ {product?.price}
-              </p>
-              <p>{product?.description}</p>
+              <p className="font-medium text-orange-400">৳ {product?.price}</p>
+              <p className="line-clamp-2">{product?.description}</p>
             </div>
           </div>
 
-          {isAdmin && (
+          {isAdmin ? (
             <div className="flex gap-3 w-full">
               <button
                 onClick={() => updateModalRef.current.show()}
@@ -126,10 +133,14 @@ const ProductCard = ({ product, isAdmin }) => {
                 Delete
               </button>
             </div>
+          ) : (
+            <div>
+              <button className="btn w-full">View Details</button>
+            </div>
           )}
         </div>
-      </>
-      {/* Modal */}
+      </div>
+      {/* update Modal */}
       <dialog ref={updateModalRef} className="modal">
         <div className="modal-box max-w-2xl">
           <form method="dialog">
@@ -242,6 +253,42 @@ const ProductCard = ({ product, isAdmin }) => {
                 )}
               </fieldset>
             </form>
+          </div>
+        </div>
+        <form method="dialog" className="modal-backdrop">
+          <button>close</button>
+        </form>
+      </dialog>
+      {/* details Modal */}
+      <dialog ref={detailsModalRef} className="modal">
+        <div className="modal-box max-w-lg">
+          <form method="dialog">
+            {/* if there is a button in form, it will close the modal */}
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              ✕
+            </button>
+          </form>
+          <div>
+            <h3 className="font-bold text-lg text-center">Product Details</h3>
+            <div className="flex flex-col gap-3 mt-5">
+              <div className="flex-auto">
+                <img
+                  src={product?.image}
+                  className="w-full h-[280px] object-cover rounded"
+                  alt=""
+                />
+                <div className="flex flex-col gap-2 mt-3">
+                  <div className="badge badge-outline rounded-full badge-sm">
+                    {product?.category}
+                  </div>
+                  <h2 className="font-semibold text-xl">{product?.name}</h2>
+                  <p className="font-medium text-orange-400 text-lg">
+                    ৳ {product?.price}
+                  </p>
+                  <p>{product?.description}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <form method="dialog" className="modal-backdrop">
