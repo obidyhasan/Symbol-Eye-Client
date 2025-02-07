@@ -1,9 +1,9 @@
 import Headline from "../../../components/Headline";
-import ProductCard from "../../../components/ProductCard";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import "./CategoryStyle.css";
 import useCategory from "../../../hooks/useCategory";
+import CategoryProduct from "./CategoryProduct";
 
 const CategoriesSection = () => {
   const { categories } = useCategory();
@@ -28,12 +28,9 @@ const CategoriesSection = () => {
           <div>
             {categories.map((category) => (
               <TabPanel key={category?._id}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                  <ProductCard></ProductCard>
-                  <ProductCard></ProductCard>
-                  <ProductCard></ProductCard>
-                  <ProductCard></ProductCard>
-                </div>
+                <CategoryProduct
+                  category={category?.category}
+                ></CategoryProduct>
               </TabPanel>
             ))}
           </div>
