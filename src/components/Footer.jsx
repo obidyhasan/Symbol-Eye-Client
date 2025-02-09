@@ -78,7 +78,7 @@ const Footer = () => {
             </p>
             <p className="flex gap-2 items-center">
               <MdCall className="text-red-500 text-xl" />
-              <span>+880 1900 00 00 00</span>
+              <span>+880 1949 966211</span>
             </p>
             <p className="flex gap-2 items-center">
               <GrLocation className="text-red-500 text-xl" />
