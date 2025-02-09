@@ -105,7 +105,7 @@ const ProductCard = ({ product, isAdmin }) => {
           <div>
             <img
               src={product?.image}
-              className="w-full h-[220px] object-cover rounded"
+              className="w-full h-[250px] object-cover rounded"
               alt=""
             />
             <div className="flex flex-col gap-1 mt-3">
@@ -276,7 +276,7 @@ const ProductCard = ({ product, isAdmin }) => {
               <div className="flex-auto">
                 <img
                   src={product?.image}
-                  className="w-full  object-contain rounded"
+                  className="w-full object-contain rounded"
                   alt=""
                 />
                 <div className="flex flex-col gap-2 mt-3">

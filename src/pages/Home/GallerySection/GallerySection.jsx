@@ -29,7 +29,7 @@ const GallerySection = () => {
                   >
                     <img
                       src={img?.image}
-                      className="w-full h-[300px] bg-base-300"
+                      className="w-full h-[300px] object-cover bg-base-300"
                       alt=""
                     />
                   </div>
